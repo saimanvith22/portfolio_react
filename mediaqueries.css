@@ -18,6 +18,12 @@
     }
     #hamburger-nav {
       display: flex;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: var(--white);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      z-index: 1000;
     }
     #experience,
     .experience-details-container {
@@ -26,6 +32,7 @@
     #profile,
     .section-container {
       display: block;
+      margin-top: 5rem;
     }
     .arrow {
       display: none;
@@ -33,9 +40,11 @@
     section,
     .section-container {
       height: fit-content;
+      margin-top: 2rem;
     }
     section {
       margin: 0 5%;
+      padding: 4rem 0;
     }
     .section__pic-container {
       width: 275px;
@@ -50,11 +59,12 @@
   @media screen and (max-width: 600px) {
     #contact,
     footer {
-      height: 40vh;
+      height: fit-content;
+      padding: 2rem 0;
     }
     #profile {
-      height: 83vh;
-      margin-bottom: 0;
+      height: fit-content;
+      margin: 5rem 0 2rem 0;
     }
     article {
       font-size: 1rem;
@@ -70,6 +80,7 @@
     }
     .contact-info-container {
       margin: 0;
+      padding: 1rem;
     }
     .contact-info-container p,
     .nav-links li a {
@@ -85,10 +96,12 @@
       flex-direction: column;
       gap: 0.5rem;
       text-align: center;
+      padding: 1rem;
     }
     .section__pic-container {
-      width: auto;
-      height: 46vw;
+      width: 100%;
+      height: auto;
+      max-width: 350px;
       justify-content: center;
     }
     .section__text__p2 {
@@ -96,8 +109,26 @@
     }
     .title {
       font-size: 2rem;
+      margin: 1rem 0;
     }
     .text-container {
       text-align: justify;
+      padding: 0 1rem;
+    }
+    
+    /* Improved hamburger menu for mobile */
+    .menu-links {
+      background: var(--white);
+      padding: 1rem;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      border-radius: 0 0 1rem 1rem;
+    }
+    .menu-links a {
+      padding: 0.75rem;
+      font-size: 1.1rem;
+    }
+    .menu-links a:hover {
+      background: var(--background-color);
+      border-radius: 0.5rem;
     }
   }   

@@ -1,0 +1,145 @@
+.dialog-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1100;
+    animation: fadeIn 0.3s ease;
+}
+
+.dialog-overlay.closing {
+    animation: fadeOut 0.3s ease forwards;
+}
+
+.dialog-content {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 1rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    width: 90%;
+    max-width: 500px;
+    max-height: 80vh;
+    overflow-y: auto;
+    animation: slideInFromLeft 0.5s ease;
+}
+
+.dialog-content.closing {
+    animation: slideOutToRight 0.5s ease forwards;
+}
+
+.dialog-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #eee;
+}
+
+.dialog-header h2 {
+    margin: 0;
+    color: var(--primary-color);
+    font-size: 1.5rem;
+}
+
+.close-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.close-button:hover {
+    background: rgba(0, 0, 0, 0.05);
+}
+
+.close-button .material-icons {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+}
+
+.dialog-body ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.dialog-body li {
+    padding: 1rem;
+    margin-bottom: 1rem;
+    background: #f8f9fa;
+    border-radius: 0.5rem;
+    color: var(--text-color);
+    font-size: 1.1rem;
+    line-height: 1.5;
+    position: relative;
+    padding-left: 2.5rem;
+}
+
+.dialog-body li::before {
+    content: '';
+    position: absolute;
+    left: 1rem;
+    top: 1.5rem;
+    width: 8px;
+    height: 8px;
+    background: #4169E1;
+    border-radius: 50%;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+@keyframes slideInFromLeft {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideOutToRight {
+    from {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .dialog-content {
+        width: 95%;
+        margin: 1rem;
+    }
+} 
