@@ -4,11 +4,11 @@ import './Profile.css';
 const BackgroundSlideshow: React.FC = () => {
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
     const images = [
-        'https://images.unsplash.com/photo-1587620962725-abab7fe55159?auto=format&fit=crop&q=80',  // Clean coding setup
-        'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&q=80',  // Code on screen
-        'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80',  // Modern laptop workspace
-        'https://images.unsplash.com/photo-1555099962-4199c345e5dd?auto=format&fit=crop&q=80',     // Dark workspace
-        'https://images.unsplash.com/photo-1516116216624-53e697fedbea?auto=format&fit=crop&q=80'   // Modern office setup
+        '/portfolio_react/assets/bg/bg1.jpg',  // Update with your actual image paths
+        '/portfolio_react/assets/bg/bg2.jpg',
+        '/portfolio_react/assets/bg/bg3.jpg',
+        '/portfolio_react/assets/bg/bg4.jpg',
+        '/portfolio_react/assets/bg/bg5.jpg'
     ];
 
     useEffect(() => {
@@ -59,7 +59,7 @@ const Profile: React.FC = () => {
     }, [titles.length]);
 
     const handleDownloadCV = () => {
-        window.open('/resume.pdf', '_blank');
+        window.open('/portfolio_react/assets/resume/resume.pdf', '_blank');
     };
 
     return (

@@ -2,6 +2,7 @@
   "name": "portfolio_react",
   "version": "1.0.0",
   "private": true,
+  "homepage": ".",
   "dependencies": {
     "@types/jest": "^29.5.14",
     "@types/node": "^22.15.29",
@@ -16,7 +17,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build --dotfiles"
   },
   "eslintConfig": {
     "extends": [
@@ -39,5 +42,8 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": ""
+  "description": "",
+  "devDependencies": {
+    "gh-pages": "^6.3.0"
+  }
 }
