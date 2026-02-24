@@ -1,146 +1,57 @@
-#experience {
-    position: relative;
-    padding: 0 2rem;
+/* Experience.css (keep your existing CSS, add these at the bottom) */
+
+/* Make the header compact (override your 2rem margin-bottom) */
+.exp-title {
+  margin-bottom: 0.25rem !important;
 }
 
-.experience-sub-title {
-    color: var(--text-color);
-    font-weight: 600;
-    font-size: 1.75rem;
-    margin-bottom: 2rem;
+/* Card header button */
+.exp-header {
+  width: 100%;
+  background: transparent;
+  border: none;
+  padding: 0; /* details-container already has padding */
+  cursor: pointer;
+
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+
+  text-align: left;
 }
 
-.experience-details-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+.exp-header-left {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
 }
 
-.about-containers {
-    display: flex;
-    gap: 2rem;
-    margin-bottom: 2rem;
-    flex-wrap: wrap;
+.exp-meta {
+  margin: 0;
+  color: var(--text-color);
+  opacity: 0.85;
+  font-size: 0.95rem;
 }
 
-.details-container {
-    flex: 1;
-    min-width: 300px;
-    background: var(--white);
-    border-radius: 2rem;
-    border: var(--accent-color) 0.1rem solid;
-    padding: 1.5rem;
+/* Chevron */
+.exp-chevron {
+  color: var(--primary-color);
+  margin-top: 0.25rem;
 }
 
-.article-container {
-    position: relative;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 1.5rem;
-    padding: 1rem;
-    min-height: 400px;
+/* Details section (no max-height animation => no blank space issues) */
+.exp-body {
+  margin-top: 1rem;
 }
 
-article {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    gap: 0.5rem;
-    padding: 1rem;
-    border-radius: 1rem;
-    background-color: var(--white);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
-    position: relative;
-    width: 100%;
-    height: fit-content;
+.exp-points {
+  margin: 0;
+  padding-left: 1.2rem;
+  color: var(--text-color);
 }
 
-@keyframes shuffle {
-    0% {
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(1.05);
-    }
-    100% {
-        transform: scale(1);
-    }
+.exp-points li {
+  margin: 0.6rem 0;
+  line-height: 1.5;
 }
-
-article.shuffling {
-    animation: shuffle 0.5s ease;
-}
-
-article:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
-}
-
-article .icon {
-    font-size: 1.5rem;
-    color: var(--primary-color);
-}
-
-article div {
-    display: flex;
-    flex-direction: column;
-    gap: 0.25rem;
-}
-
-article h3 {
-    font-size: 1.1rem;
-    color: var(--primary-color);
-    margin: 0;
-}
-
-article p {
-    color: var(--text-color);
-    font-size: 0.9rem;
-    margin: 0;
-}
-
-.arrow {
-    position: absolute;
-    right: -5rem;
-    bottom: 2.5rem;
-}
-
-@media screen and (max-width: 1200px) {
-    .about-containers {
-        flex-direction: column;
-    }
-    
-    .details-container {
-        min-width: 100%;
-    }
-    
-    .article-container {
-        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-        min-height: 300px;
-    }
-}
-
-@media screen and (max-width: 768px) {
-    #experience {
-        padding: 0 1rem;
-    }
-    
-    .article-container {
-        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-        gap: 1rem;
-        min-height: 250px;
-    }
-    
-    article {
-        padding: 0.75rem;
-    }
-    
-    article h3 {
-        font-size: 1rem;
-    }
-    
-    article p {
-        font-size: 0.8rem;
-    }
-} 

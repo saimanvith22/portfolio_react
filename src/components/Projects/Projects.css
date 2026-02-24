@@ -1,10 +1,16 @@
 #projects {
     position: relative;
+    padding: 2rem;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .color-container {
-    border-color: var(--accent-color);
-    background: var(--background-color);
+    border-color: rgb(163, 163, 163);
+    background: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .project-img-container {
@@ -13,7 +19,8 @@
     margin: 0 auto;
     border-radius: 1rem;
     overflow: hidden;
-    transition: transform var(--transition-speed) ease;
+    transition: transform 0.3s ease;
+    border: 1px solid #eee;
 }
 
 .project-img-container img {
@@ -49,20 +56,38 @@
 }
 
 .project-title {
-    margin: 1rem;
-    color: var(--primary-color);
+    margin: 1.5rem 1rem;
+    color: #333;
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-align: center;
 }
 
 .project-description {
-    color: var(--text-color);
+    color: #666;
     margin: 1rem;
     text-align: center;
+    line-height: 1.5;
+    min-height: 4.5em;
 }
 
 .project-btn {
     color: var(--primary-color);
-    border-color: var(--accent-color);
+    border-color: var(--primary-color);
     text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.8rem 1.5rem;
+    border-radius: 2rem;
+    font-weight: 600;
+}
+
+.project-btn:hover {
+    background-color: var(--primary-color);
+    color: white;
+    transform: translateY(-2px);
 }
 
 /* Project Card Container */
@@ -71,21 +96,27 @@
     flex-wrap: wrap;
     gap: 2rem;
     justify-content: center;
+    margin-top: 2rem;
+    width: 100%;
+    max-width: 1200px;
 }
 
 .details-container.color-container {
-    background: var(--background-color);
-    border-radius: 2rem;
-    border: var(--accent-color) 0.1rem solid;
-    padding: 2rem;
+    background: white;
+    border-radius: 1rem;
+    border: 1px solid #eee;
+    padding: 1.5rem;
     flex: 1;
     min-width: 300px;
-    max-width: 400px;
-    transition: transform var(--transition-speed) ease;
+    max-width: 380px;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
 }
 
 .details-container.color-container:hover {
     transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
 .article-container {
@@ -101,12 +132,14 @@
     display: flex;
     justify-content: center;
     gap: 1rem;
+    margin-top: auto;
+    padding-top: 1rem;
 }
 
 .arrow-container {
     position: absolute;
-    right: -5rem;
-    bottom: 2.5rem;
+    right: 2rem;
+    bottom: 2rem;
 }
 
 .arrow {
@@ -118,4 +151,18 @@
 
 .arrow:hover {
     transform: translateY(5px);
+}
+
+.section__text__p1 {
+    text-align: center;
+    font-size: 1.25rem;
+    color: #666;
+    margin-bottom: 0.5rem;
+}
+
+.title {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 2rem;
 } 

@@ -9,7 +9,15 @@ const About: React.FC = () => {
             <div className="section-container">
                 <div className="section__pic-container">
                     <div className="about-pic">
-                        <img src="/assets/images/profile.jpg" alt="Saimanvith Anandesi" />
+                        <img 
+                            src={`${process.env.PUBLIC_URL}/assets/images/profile.jpg`} 
+                            alt="Saimanvith Anandesi"
+                            onError={(e) => {
+                                const target = e.target as HTMLImageElement;
+                                target.onerror = null;
+                                target.src = `${process.env.PUBLIC_URL}/portfolio_react/assets/images/profile.jpg`;
+                            }}
+                        />
                     </div>
                 </div>
                 <div className="about-details-container">
@@ -17,7 +25,7 @@ const About: React.FC = () => {
                         <div className="details-container experience">
                             <span className="material-icons icon">work</span>
                             <h3>Experience</h3>
-                            <p>4+ years<br/>Software Development</p>
+                            <p>5+ years<br/>Software Development</p>
                         </div>
                         <div className="details-container education">
                             <span className="material-icons icon">school</span>
@@ -27,8 +35,8 @@ const About: React.FC = () => {
                     </div>
                     <div className="text-container">
                         <p>
-                            Result-driven graduate and full stack developer with 4+ years of experience in building 
-                            performant front-end interfaces and back with React, Node.js, Python, MongoDB, and other 
+                            Result-driven graduate and full stack developer with 5+ years of experience in building 
+                            performant front-end interfaces and backend with .NET, Sitecore, React, Node.js, MongoDB, and other 
                             JavaScript-based stacks.
                         </p>
                     </div>
