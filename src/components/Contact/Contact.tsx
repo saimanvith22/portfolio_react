@@ -16,7 +16,7 @@ const Contact: React.FC = () => {
                 <div className="contact-info-container">
                     <span className="material-icons contact-icon">person</span>
                     <p>
-                        <a href="https://www.linkedin.com/in/anandesi-saimanvith-6378a623b/" target="_blank" rel="noopener noreferrer">
+                        <a href="" target="_blank" rel="noopener noreferrer">
                             LinkedIn
                         </a>
                     </p>
