@@ -11,7 +11,7 @@ interface Project {
 const ProjectCard: React.FC<Project> = ({ title, description, image, githubLink }) => (
     <div className="details-container color-container">
         <div className="project-img-container">
-            <img src={image} alt={title} />
+            <img src={`${process.env.PUBLIC_URL}${image}`} alt={title} />
         </div>
         <h2 className="experience-sub-title project-title">{title}</h2>
         <p className="project-description">{description}</p>

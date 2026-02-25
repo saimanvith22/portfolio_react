@@ -19,7 +19,7 @@ const Navbar: React.FC = () => {
     });
 
     const aboutPoints = [
-        "Full Stack Developer with 4+ years of experience in building web applications",
+        "Full Stack Developer with 5+ years of experience in building web applications",
         "Masters in Computer Science from University of North Texas",
         "Proficient in React, Node.js, TypeScript, and cloud technologies",
         "Strong problem-solving skills and experience in agile development"

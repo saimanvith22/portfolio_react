@@ -4,11 +4,9 @@ import './Profile.css';
 const BackgroundSlideshow: React.FC = () => {
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
     const images = [
-        '/portfolio_react/assets/bg/bg1.jpg',  // Update with your actual image paths
-        '/portfolio_react/assets/bg/bg2.jpg',
-        '/portfolio_react/assets/bg/bg3.jpg',
-        '/portfolio_react/assets/bg/bg4.jpg',
-        '/portfolio_react/assets/bg/bg5.jpg'
+        'https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=2070&q=80',
+        'https://images.unsplash.com/photo-1542831371-29b0f74f9713?auto=format&fit=crop&w=2070&q=80',
+        'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=2069&q=80'
     ];
 
     useEffect(() => {
@@ -16,21 +14,24 @@ const BackgroundSlideshow: React.FC = () => {
             setCurrentImageIndex((prevIndex) => 
                 prevIndex === images.length - 1 ? 0 : prevIndex + 1
             );
-        }, 3000);
+        }, 5000); // Increased to 5 seconds for better visibility
 
         return () => clearInterval(interval);
     }, [images.length]);
 
     return (
-        <div className="background-slideshow">
-            {images.map((image, index) => (
-                <div
-                    key={index}
-                    className={`slide ${index === currentImageIndex ? 'active' : ''}`}
-                    style={{ backgroundImage: `url(${image})` }}
-                />
-            ))}
-        </div>
+        <>
+            <div className="background-overlay"></div>
+            <div className="background-slideshow">
+                {images.map((image, index) => (
+                    <div
+                        key={index}
+                        className={`slide ${index === currentImageIndex ? 'active' : ''}`}
+                        style={{ backgroundImage: `url(${image})` }}
+                    />
+                ))}
+            </div>
+        </>
     );
 };
 
@@ -45,7 +46,7 @@ const Profile: React.FC = () => {
         "Problem Solver",
         "Learner",
         "Coder",
-        "Control Engineer"
+        "Tech Enthusiast"
     ];
 
     useEffect(() => {
@@ -59,7 +60,40 @@ const Profile: React.FC = () => {
     }, [titles.length]);
 
     const handleDownloadCV = () => {
-        window.open('/portfolio_react/assets/resume/resume.pdf', '_blank');
+        // Try both local and GitHub Pages paths
+        const resumePaths = [
+            `${process.env.PUBLIC_URL}/assets/resume.pdf`,
+            `${process.env.PUBLIC_URL}/portfolio_react/assets/resume.pdf`,
+            // Add a direct GitHub raw content URL if you have your resume in the repository
+            'https://raw.githubusercontent.com/saimanvith22/portfolio_react/main/public/assets/resume.pdf'
+        ];
+
+        const tryDownload = async () => {
+            for (const path of resumePaths) {
+                try {
+                    const response = await fetch(path);
+                    if (response.ok) {
+                        const link = document.createElement('a');
+                        link.href = path;
+                        link.target = '_blank';
+                        link.download = 'SaimanvithAnandesi_Resume.pdf';
+                        document.body.appendChild(link);
+                        link.click();
+                        document.body.removeChild(link);
+                        return true;
+                    }
+                } catch (error) {
+                    console.warn(`Failed to fetch resume from ${path}:`, error);
+                }
+            }
+            return false;
+        };
+
+        tryDownload().then(success => {
+            if (!success) {
+                alert('Resume file not found. Please ensure your resume is uploaded at public/assets/resume.pdf');
+            }
+        });
     };
 
     return (
